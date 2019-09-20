@@ -1,0 +1,27 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Studomat</title>
+</head>
+<body>
+  <main>
+    <h1>Studomat</h1>
+
+    {% if user.is_authenticated %}
+      Dobrodošli {{ user.get_full_name }}!
+      <p><a href="{% url 'logout' %}">odjavite se</a></p>
+
+      {% block content %}
+      {% endblock %}
+
+    {% else %}
+      <p>Niste prijavljeni</p>
+      <a href="{% url 'login' %}">prijavite se</a>
+    {% endif %}
+    
+  </main>
+</body>
+</html>
+

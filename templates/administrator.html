@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Profesori</h2>
+
+<ul>
+    {% for profesor in profesori %}
+        <li>
+            {{ profesor.ime }} {{ profesor.prezime }}   |  mail:  {{ profesor.sluzbenimail }}
+            <form action="/brisanjeProfesor/{{ profesor.jmbag }}/" method="POST">{% csrf_token %} 
+                <input type="submit" value="Delete"/>
+            </form>
+        </li>
+    {% endfor %}
+</ul>
+
+
+
+<h2>Studenti</h2>
+
+<ul>
+    {% for student in studenti %}
+        <li>
+            {{ student.ime }} {{ student.prezime }} {{ student.spol }} {{ student.jmbag }} 
+            <form action="/brisanjeStudent/{{ student.jmbag }}/" method="POST">{% csrf_token %} 
+                <input type="submit" name=jmbag value= Delete/>
+            </form>
+        </li>
+    {% endfor %}
+</ul>
+
+<h2>Dodavanje novog korisnika</h2>
+<form action="/dodavanje/" method="POST">{% csrf_token %} 
+    <input type="text" name="ime" placeholder="Ime" required/>
+    <input type="text" name="prezime" placeholder="Prezime" required/>
+    <input type="text" name="jmbag" placeholder="JMBAG" required/>
+    <input type="text" name="spol" placeholder="spol" required/>
+    <input type="text" name="email" placeholder="Mail" required/>
+    <input type="text" name="pbrRod" placeholder="postanski broj rođenja"/>
+    <input type="text" name="pbrPbr" placeholder="postanski broj prebivališta"/>
+    <input type="date" name="datumRodjenja" placeholder="Datum rođenja" required/>
+
+    <Input type = 'Radio' id=radioProf name ='uloga' value= 'profesor' required title="profesor">
+    <label for="radioProf"> profesor</label>
+    <Input type = 'Radio' id=radioStud name ='uloga' value= 'student' required checked title="student"> 
+    <label for="radioStud"> student</label>
+
+    <input type="submit" value="Dodaj"/>
+</form>
+
+{% endblock %}

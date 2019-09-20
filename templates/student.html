@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Podatci o studentu</h2>
+
+<ul>
+    <li> JMBAG : {{ student.jmbag }} </li>
+    <li> Prezime : {{ student.prezime }} </li>
+    <li> Ime : {{ student.ime }} </li>
+    <li> Spol : {{ student.spol }} </li>
+    <li> Datum rođenja : {{ student.datumrod }} </li>
+    <li> Poštanski broj : {{ student.postanskibrojprb }} </li>
+    <li> Poštanski broj : {{ student.postanskibrojrod }} </li>
+    <li> Mail : {{ student.email }} </li>
+</ul>
+
+{% endblock %}
