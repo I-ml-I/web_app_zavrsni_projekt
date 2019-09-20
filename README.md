@@ -46,5 +46,10 @@ Student u ovoj verziji studomata ima prava samo gledati svoje osobne podatke, is
 Administrator može upravljati osobnim podacima studenta i profesora.
 
 Student i profesor ne može uređivati ni mijenjati svoje osobne podatke, to obavlja administrator prije dodjele korisničkog imena
+
+####Animacija upotrebe
+![alt text](readme-static/kazam_2kqq_tbkbmovie.gif)
+
+
 tako da ukoliko se ulogirate u student ili profesor račun čiji osobni podaci nisu unijeti od strane administratora, polja
 osobnih podataka će biti prazna. 
