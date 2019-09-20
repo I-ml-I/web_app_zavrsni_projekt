@@ -12,7 +12,7 @@ class Mjesto(models.Model):
 class Predmet(models.Model):
     id = models.IntegerField(primary_key=True)
     naziv = models.CharField(max_length=70)
-    jmbagnositelja = models.ForeignKey('Profesor', models.DO_NOTHING, db_column='jmbagnositelja')
+    jmbagnositelja = models.ForeignKey('Profesor', models.CASCADE, db_column='jmbagnositelja')
 
     class Meta:
         managed = False
@@ -25,8 +25,8 @@ class Profesor(models.Model):
     ime = models.CharField(max_length=25)
     spol = models.CharField(max_length=1)
     datumrod = models.DateField(blank=True, null=True)
-    postanskibrojprb = models.ForeignKey(Mjesto, models.DO_NOTHING, db_column='postanskibrojprb', blank=True, null=True, related_name='profpbr')
-    postanskibrojrod = models.ForeignKey(Mjesto, models.DO_NOTHING, db_column='postanskibrojrod', blank=True, null=True)
+    postanskibrojprb = models.ForeignKey(Mjesto, models.CASCADE, db_column='postanskibrojprb', blank=True, null=True, related_name='profpbr')
+    postanskibrojrod = models.ForeignKey(Mjesto, models.CASCADE, db_column='postanskibrojrod', blank=True, null=True)
     sluzbenimail = models.CharField(max_length=30)
 
     class Meta:
@@ -40,8 +40,8 @@ class Student(models.Model):
     ime = models.CharField(max_length=25)
     spol = models.CharField(max_length=1)
     datumrod = models.DateField()
-    postanskibrojprb = models.ForeignKey(Mjesto, models.DO_NOTHING, db_column='postanskibrojprb', blank=True, null=True, related_name='studPbr')
-    postanskibrojrod = models.ForeignKey(Mjesto, models.DO_NOTHING, db_column='postanskibrojrod', blank=True, null=True)
+    postanskibrojprb = models.ForeignKey(Mjesto, models.CASCADE, db_column='postanskibrojprb', blank=True, null=True, related_name='studPbr')
+    postanskibrojrod = models.ForeignKey(Mjesto, models.CASCADE, db_column='postanskibrojrod', blank=True, null=True)
     email = models.CharField(max_length=30, blank=True, null=True)
 
     class Meta:
